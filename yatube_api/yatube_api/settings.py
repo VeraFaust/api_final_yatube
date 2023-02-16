@@ -107,4 +107,3 @@ SIMPLE_JWT = {
         'Bearer',
     ),
 } 
-

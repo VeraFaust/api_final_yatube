@@ -11,6 +11,7 @@ from .serializers import(
     PostSerializer
 )
 
+
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
@@ -89,4 +90,3 @@ class FollowViewSet(viewsets.ModelViewSet):
             raise exceptions.ValidationError('Подписка уже есть.')
 
         serializer.save(user=self.request.user)
-
