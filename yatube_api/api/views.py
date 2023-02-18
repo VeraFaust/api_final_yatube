@@ -15,7 +15,7 @@ from .serializers import (
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = [ 
+    permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
 
@@ -25,7 +25,7 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly,
-        IsOwnerOrReadOnly 
+        IsOwnerOrReadOnly
     ]
     pagination_class = LimitOffsetPagination
 
@@ -37,7 +37,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly,
-        IsOwnerOrReadOnly 
+        IsOwnerOrReadOnly
     ]
 
     def perform_create(self, serializer):
@@ -62,7 +62,7 @@ class FollowViewSet(
     viewsets.GenericViewSet
 ):
     serializer_class = FollowSerializer
-    permission_classes = [ 
+    permission_classes = [
         permissions.IsAuthenticated
     ]
     filter_backends = (filters.SearchFilter,)
