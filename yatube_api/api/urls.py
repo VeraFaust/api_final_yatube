@@ -4,11 +4,7 @@ from .views import CommentViewSet, GroupViewSet, PostViewSet, FollowViewSet
 
 
 router_v1 = DefaultRouter()
-router_v1.register(
-    'posts',
-    PostViewSet,
-    basename='posts'
-)
+router_v1.register('posts', PostViewSet)
 router_v1.register(
     'follow',
     FollowViewSet,
@@ -19,13 +15,10 @@ router_v1.register(
     CommentViewSet,
     basename='comments'
 )
-router_v1.register(
-    'groups',
-    GroupViewSet,
-    basename='groups'
-)
+router_v1.register('groups', GroupViewSet)
 
 urlpatterns = [
     path('v1/', include(router_v1.urls)),
+    path('v1/', include('djoser.urls')),
     path('v1/', include('djoser.urls.jwt')),
 ]
