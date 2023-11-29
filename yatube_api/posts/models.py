@@ -5,24 +5,24 @@ User = get_user_model()
 
 
 class Group(models.Model):
-    """Группы."""
+    """Модель для группы."""
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     description = models.TextField()
 
     class Meta:
-        verbose_name_plural = 'Группы'
         verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'
 
     def __str__(self):
         return self.title
 
 
 class Post(models.Model):
-    """Посты."""
+    """Модель для поста."""
     text = models.TextField()
     pub_date = models.DateTimeField(
-        'Дата публикации',
+        verbose_name='Дата публикации',
         auto_now_add=True
     )
     author = models.ForeignKey(
@@ -51,7 +51,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    """Комментарии."""
+    """Модель для комментария."""
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
@@ -66,7 +66,7 @@ class Comment(models.Model):
     )
     text = models.TextField()
     created = models.DateTimeField(
-        'Дата добавления',
+        verbose_name='Дата добавления',
         auto_now_add=True,
         db_index=True
     )
@@ -76,7 +76,7 @@ class Comment(models.Model):
 
 
 class Follow(models.Model):
-    """Подписки."""
+    """Модель для подписки."""
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -102,8 +102,8 @@ class Follow(models.Model):
                 name='unique_follow'
             )
         ]
-        verbose_name_plural = 'Подписки'
         verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'
 
     def __str__(self):
         return f'{self.user.username} подписался на {self.following.username}'
