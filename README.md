@@ -1,84 +1,65 @@
-# API для проекта Yatube
-## 1. Описание:
-Yatube - социальная сеть. 
-В ней можно создавать, редактировать и удалять свои посты,
-подписываться на других авторов и читать их записи с помощью API-запросов.
-Для неавторизованных пользователей API доступно только чтением
-без всяких прав доступа к чужим записям.
+# API для Yatube
 
----
-## 2. Команды для запуска:
-- Клонирование репозитория:
-```bash
-git clone https://github.com/Ваш_ник/api_final_yatube.git
+## Описание:
+В этом проекте дописан API для недостающих моделей приложения posts.  
+Дописана логика API на основе документации.
+
+## Технологии:
+- Python;
+- Django;
+- Git;
+- DRF;
+- API;
+- REST API;
+- JWT + Djoser.
+
+## Запуск проекта:
+- Клонируйте репозиторий:
 ```
-- Создание и активирование виртуального окружения:
-```bash
-python (или py) -m venv venv
-Windows: source venv/Scripts/activate
+git clone https://github.com/VeraFaust/api_final_yatube.git
 ```
-- Установка зависимостей из файла requirements.txt:
-```bash
-python3 (или py) -m pip install --upgrade pip
+
+- Установите и активируйте виртуальное окружение:
+```
+python -m venv venv
+```
+```
+source venv/Scripts/activate
+```
+
+- Установите зависимости из файла requirements.txt:
+```
+py -m pip install --upgrade pip
+```
+```
 pip install -r requirements.txt
 ```
-- Миграции:
-```bash
-python3 (или py) manage.py makemigrations
-python3 (или py) manage.py migrate
+
+- В папке с файлом manage.py запустите миграции:
 ```
-- Запуск проекта:
-```bash
+py manage.py makemigrations
+```
+```
+py manage.py migrate
+```
+
+- В папке с файлом manage.py создайте админа и запустите проект:
+```
+py manage.py createsuperuser
+```
+```
 python manage.py runserver
 ```
+Перейти по ссылке:
 
----
-## 3. Некоторые примеры запросов к API:
-Posts:
+На сайт http://127.0.0.1:8000/  
+В админ-зону http://127.0.0.1:8000/admin  
+В api http://127.0.0.1:8000/api
+
+Остановить работу:
 ```
-"/api/v1/posts/"
-"/api/v1/posts/{id}/"
-```
-Groups:
-```
-"/api/v1/groups/",
-"/api/v1/groups/{id}/"
-```
-Comments:
-```
-"/api/v1/posts/{id}/comments/",
-"/api/v1/posts/{id}/comments/{id}/"
+Ctrl+C
 ```
 
----
-## 4. Примеры запросов:
-
-Получение списка всех постов:
-```
-Method: GET
-Endpoint: "/api/v1/posts/"
-```
-
-Публикация поста:
-```
-Method: POST
-Endpoint: "/api/v1/posts/"
-Payload:
-{
-"text": "string",
-"image": "string",
-"group": 0
-}
-```
-
----
-## 5. Использованные технологии:
- - Python 3
-- Django
-- Django REST Framework
-- SQLite
-
----
-## 6. Автор:
-
-Вера Фауст
+## Автор:
+Фауст Вера
