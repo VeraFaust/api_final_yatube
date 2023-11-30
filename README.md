@@ -49,11 +49,11 @@ py manage.py createsuperuser
 ```
 python manage.py runserver
 ```
-Перейти по ссылке:
-
+Перейти по ссылке:  
 На сайт http://127.0.0.1:8000/  
 В админ-зону http://127.0.0.1:8000/admin  
-В api http://127.0.0.1:8000/api
+В api http://127.0.0.1:8000/api  
+На документацию http://127.0.0.1:8000/redoc/
 
 Остановить работу:
 ```
